@@ -91,3 +91,10 @@ pnpm typecheck     # TypeScript check (tsc --noEmit)
 - **No microservices** — this is a monolith until proven otherwise
 - **No WebSockets** — use polling or Server-Sent Events if real-time needed
 - **No CMS** — content is managed through the database or markdown files
+
+## Token Budget
+- **Soft limit**: 2000 tokens for the entire CLAUDE.md
+- **Hard limit**: 3000 tokens — CI will fail the PR if exceeded
+- **Review cadence**: Every 3 months, audit each section for drift
+- **What to remove**: Delete sections that Claude no longer references (check chat logs)
+- **Why this matters**: Every token in CLAUDE.md is sent with every request. A file that grows to 6000 tokens silently adds cost and dilutes attention. Keep it lean.
